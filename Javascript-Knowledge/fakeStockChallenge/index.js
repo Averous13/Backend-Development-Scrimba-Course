@@ -31,21 +31,19 @@ function renderStockTicker(stockData) {
     const stockDisplayPrice = document.getElementById('price')
     const stockDisplayPriceIcon = document.getElementById('price-icon')
     const stockDisplayTime = document.getElementById('time')
+
+    const {name, sym, price, time} = stockData
     
-    stockDisplayName.innerText = stockData.name
-    stockDisplaySymbol.innerText = stockData.sym
-    stockDisplayPrice.innerText = stockData.price
-    stockDisplayTime.innerText = stockData.time
+    stockDisplayName.innerText = name
+    stockDisplaySymbol.innerText = sym
+    stockDisplayPrice.innerText = price
+    stockDisplayTime.innerText = time
     
     const img = document.createElement('img')
+
+    const imgUrl = prevData.price > price ? 'green.svg' : prevData.price < price ? 'red.svg' : 'grey.svg';
     
-    if (prevData.price > stockData.price) {
-      img.src = './svg/red.svg'
-    } else if (prevData.price === stockData.price) {
-      img.src = './svg/grey.svg'
-    } else {
-      img.src = './svg/green.svg'
-    }
+    img.src = `./svg/${imgUrl}`
     
     stockDisplayPriceIcon.innerHTML = '' 
     stockDisplayPriceIcon.append(img)

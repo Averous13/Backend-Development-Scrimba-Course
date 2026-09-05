@@ -1,6 +1,7 @@
 {
   "name": "Scrim-s06igmu",
   "description": "https://scrimba.com/backend-path-c0tbi0l98f/~0zl3/s0oa935sj0/head",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
