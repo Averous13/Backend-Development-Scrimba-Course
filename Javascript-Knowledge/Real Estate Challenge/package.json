@@ -1,0 +1,14 @@
+{
+  "name": "Scrim-s05fc3i",
+  "description": "https://scrimba.com/backend-path-c0tbi0l98f/~0ywm/s0ohvsft7h/head",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}
