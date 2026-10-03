@@ -12,7 +12,6 @@ const patternSearchSubmit = document.getElementById('pattern-search-submit')
 const contactDisplay = document.getElementById('contact-display')
 
 function renderContact(contactObj) {
-    contactDisplay.innerHTML = ''
     const contactCard = document.createElement('aside')
     contactCard.classList.add('contact-card')
 /*
@@ -37,16 +36,17 @@ function renderContact(contactObj) {
 
 patternSearchSubmit.addEventListener('click', function (e) {
     e.preventDefault();
-    
-    if (patternSearchInput.value) {
-        const result = contactsArr.filter(contact => 
-            contact.name.toLowerCase().includes(patternSearchInput.value.toLowerCase()))    
-        result.map((contact) => renderContact(contact))
-    }
+    contactDisplay.innerHTML = ''
+
+    const regex = new RegExp(patternSearchInput.value, 'i')
+    contactsArr.filter(function(contact) {
+        return regex.test(contact.name)
+    }).forEach(function(contact) {
+        renderContact(contact)
+    })
     
 })
 
-import { contactsArr } from '/contactsData.js'
 // solution from scrimba
 /*
 Challenge:
