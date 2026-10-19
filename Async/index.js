@@ -34,13 +34,14 @@ Challenge:
     const results = imageUrlsArr.map(url => getImagePromise(url));
     
     
-    Promise.all(results)
-        .then(loadedImages => {
-            console.log('All images loaded successfully!');
-            uploadContainer.style.visibility = 'hidden';
-            imgContainer.append(...loadedImages);
-        })
-        .catch(error => console.log(error));
+    try {
+        const results = await Promise.all(promises);
+        console.log('All images loaded successfully!');
+        uploadContainer.style.display = 'none';
+        results.forEach((img) => imgContainer.appendChild(img));
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 document.getElementById('submit-imgs').addEventListener('click', () => preloadImages(images))
