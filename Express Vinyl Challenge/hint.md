@@ -1,46 +1,5 @@
-- Destructure 'search' from req.query
+Import bcrypt from bcryptjs
 
-- Use conditional logic to see if 'search' is a truthy value. If it is:
-   - Add to the query let with something like this:
-        query += ' WHERE abc LIKE ? OR xyz LIKE ? ...'
-	- Wrap the search pattern (i.e. inputted search text) in the '%' wildcard to match any sequence of characters.
-	- Push the search pattern to the params array as many times as you have placeholders.
+bcrypt gives us the .hash() method. 
 
-
-Scroll down for spoiler:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-query += ' WHERE name LIKE ? OR address LIKE ? OR town LIKE ?'
-const searchPattern = `%${search}%`
-params.push(searchPattern, searchPattern, searchPattern)
-
-
-
-
-
-
-
+Pass the .hash() method a string to hash and a cost-factor
